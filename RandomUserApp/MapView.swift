@@ -12,14 +12,13 @@ struct MapView: View {
 	@Environment(\.presentationMode) var presentationMode
 	
 	@EnvironmentObject var stateController: StateController
-
-	
 	var users: [User]
-	
 	
 	var body: some View {
 		Map(coordinateRegion: $stateController.region, annotationItems: users) { user in
-			MapMarker(coordinate: user.coordinate)
+			MapAnnotation(coordinate: user.coordinate) {
+				ImageView(user: user, size: 25, region: $stateController.region)
+			}
 		}
 		.navigationTitle(Text("All Users"))
 		.navigationBarTitleDisplayMode(.inline)
@@ -30,8 +29,8 @@ struct MapView: View {
 				}
 			}
 		}
-		.onAppear {
-			let coordinates = users.map(\.coordinate)
-		}
+//		.onAppear {
+//			let coordinates = users.map(\.coordinate)
+//		}
 	}
 }

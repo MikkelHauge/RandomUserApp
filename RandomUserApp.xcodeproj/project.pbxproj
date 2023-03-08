@@ -15,7 +15,6 @@
 		22D96C2A29AF4A0000F2CE72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D96C2929AF4A0000F2CE72 /* User.swift */; };
 		22D96C2D29AF4B1C00F2CE72 /* RandomUserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D96C2C29AF4B1C00F2CE72 /* RandomUserResult.swift */; };
 		22D96C2F29AF541500F2CE72 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D96C2E29AF541500F2CE72 /* NetworkService.swift */; };
-		7671EBCF29B85ED70060286F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7671EBCE29B85ED70060286F /* LocationService.swift */; };
 		7671EBD129B866AE0060286F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7671EBD029B866AE0060286F /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +28,6 @@
 		22D96C2929AF4A0000F2CE72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22D96C2C29AF4B1C00F2CE72 /* RandomUserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserResult.swift; sourceTree = "<group>"; };
 		22D96C2E29AF541500F2CE72 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		7671EBCE29B85ED70060286F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		7671EBD029B866AE0060286F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +67,6 @@
 				22D96C2B29AF4A7600F2CE72 /* Model */,
 				22D96C1F29AF490B00F2CE72 /* Preview Content */,
 				22D96C2729AF494B00F2CE72 /* StateController.swift */,
-				7671EBCE29B85ED70060286F /* LocationService.swift */,
 				22D96C2E29AF541500F2CE72 /* NetworkService.swift */,
 				7671EBD029B866AE0060286F /* MapView.swift */,
 			);
@@ -165,7 +162,6 @@
 			files = (
 				22D96C2A29AF4A0000F2CE72 /* User.swift in Sources */,
 				22D96C1C29AF490900F2CE72 /* ContentView.swift in Sources */,
-				7671EBCF29B85ED70060286F /* LocationService.swift in Sources */,
 				22D96C2829AF494B00F2CE72 /* StateController.swift in Sources */,
 				22D96C2D29AF4B1C00F2CE72 /* RandomUserResult.swift in Sources */,
 				22D96C2F29AF541500F2CE72 /* NetworkService.swift in Sources */,

@@ -9,8 +9,8 @@ import SwiftUI
 import CoreLocation
 import MapKit
 class StateController: ObservableObject {
-	@Published var users: [User] = []  //same as @Published var users = [User]()
 	
+	@Published var users: [User] = []  //same as @Published var users = [User]()
 	@Published var region = MKCoordinateRegion(
 		center: CLLocationCoordinate2D(latitude: 56.334_900,
 									   longitude: 10.009_020),

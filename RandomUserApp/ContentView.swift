@@ -11,7 +11,6 @@ struct ContentView: View {
 	@EnvironmentObject var stateController: StateController
 	@State private var usersOnMap = false
 	@Binding var region: MKCoordinateRegion
-
 	
 	var lastNameSortedUsersers: [User] {
 		stateController.users.sorted {
@@ -52,7 +51,7 @@ struct ContentView: View {
 					Button(action: {
 						usersOnMap = false
 					}) {
-						Image(systemName: "map")
+						Image(systemName: "arrowshape.turn.up.backward.fill")
 					}
 				}
 			}
@@ -62,28 +61,38 @@ struct ContentView: View {
 }
 
 struct UserDetailView: View {
+	@EnvironmentObject var stateController: StateController
+
+	
 	let user: User
 
 	var body: some View {
 		VStack {
 			Text("\(user.name.first) \(user.name.last)")
 			Text("\(user.location.city)")
-			ImageView(user: user)
+			ImageView(user: user, size: 10, region: $stateController.region)
 			Map(coordinateRegion: .constant(MKCoordinateRegion(center: user.coordinate, span: MKCoordinateSpan(latitudeDelta: 20, longitudeDelta: 20))), annotationItems: [user]) { user in
 				MapMarker(coordinate: user.coordinate)
 			}
 			.frame(height: 400)
+			
 		}
 		.padding()
 	}
 }
 struct ImageView: View {
 	let user: User
+	let size: CGFloat
+	@Binding var region: MKCoordinateRegion
+	
 	var body: some View {
 		let url = URL(string: user.picture.large)!
 		AsyncImage(url: url) { image in
 			image
-				.clipShape(RoundedRectangle(cornerRadius: 10))
+				.resizable()
+				.frame(width: size, height: size)
+				.clipShape(Circle())
+				
 		} placeholder: {
 			LoadingView()
 		}
