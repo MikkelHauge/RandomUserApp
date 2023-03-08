@@ -1,15 +1,8 @@
-//
-//  ContentView.swift
-//  RandomUserApp
-//
-//  Created by tim on 01/03/2023.
-//
-
 import SwiftUI
 import _MapKit_SwiftUI
 struct ContentView: View {
 	@EnvironmentObject var stateController: StateController
-	@State private var usersOnMap = false
+	@State private var usersOnMap = false //.sheet med users (vises ikke pr. default)
 	@Binding var region: MKCoordinateRegion
 	
 	var lastNameSortedUsersers: [User] {
@@ -68,18 +61,24 @@ struct UserDetailView: View {
 
 	var body: some View {
 		VStack {
-			Text("\(user.name.first) \(user.name.last)")
-			Text("\(user.location.city)")
-			ImageView(user: user, size: 10, region: $stateController.region)
+			HStack{
+				ImageView(user: user, size: 120, region: $stateController.region)
+				VStack{
+					Text("\(user.name.first) \(user.name.last)")
+					Text("\(user.location.city)")
+				}
+			}
+			.padding()
+			
 			Map(coordinateRegion: .constant(MKCoordinateRegion(center: user.coordinate, span: MKCoordinateSpan(latitudeDelta: 20, longitudeDelta: 20))), annotationItems: [user]) { user in
 				MapMarker(coordinate: user.coordinate)
 			}
 			.frame(height: 400)
-			
 		}
 		.padding()
 	}
 }
+
 struct ImageView: View {
 	let user: User
 	let size: CGFloat
