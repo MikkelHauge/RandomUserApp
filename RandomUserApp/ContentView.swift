@@ -19,16 +19,19 @@ struct ContentView: View {
 					destination: UserDetailView(user: user)
 				) {
 					HStack{
-						Map(coordinateRegion: .constant(MKCoordinateRegion(center: user.coordinate, span: MKCoordinateSpan(latitudeDelta: 30, longitudeDelta: 30))), annotationItems: [user]) { user in
+						Map(coordinateRegion: .constant(MKCoordinateRegion(center: user.coordinate, span: MKCoordinateSpan(latitudeDelta: 50, longitudeDelta: 50))), annotationItems: [user]) { user in
 							MapMarker(coordinate: user.coordinate)
 						}
-						.frame(width: 150, height: 150)
+						.padding()
+						.frame(width: 80, height: 80)
+						.cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+						.blur(radius: 4)
 
 						Text("\(user.name.first) \(user.name.last)")
 					}
 				}
 			}
-			.navigationTitle(Text("Noobs"))
+			.navigationTitle(Text("Random Users"))
 			.toolbar{
 				ToolbarItem(placement: .navigationBarTrailing){
 					Button(action: {
@@ -65,7 +68,12 @@ struct UserDetailView: View {
 				ImageView(user: user, size: 120, region: $stateController.region)
 				VStack{
 					Text("\(user.name.first) \(user.name.last)")
+						.font(.title)
+						.lineLimit(3)
+						
 					Text("\(user.location.city)")
+						.foregroundColor(.accentColor)
+						.font(.title)
 				}
 			}
 			.padding()
@@ -74,6 +82,10 @@ struct UserDetailView: View {
 				MapMarker(coordinate: user.coordinate)
 			}
 			.frame(height: 400)
+			.saturation(2)
+			.cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
+			
+			
 		}
 		.padding()
 	}
